@@ -20,6 +20,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cctype>
+#include<iomanip>
 #include <vector>
 #include <iostream>
 #include <limits>
@@ -112,7 +113,7 @@ int main() {
 
         vector<int> row = {mathLevel, leftNum, rightNum, mathType, totalNum};
 
-        for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try agian 3 times
+        for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try again 3 times
             while (!(cin>>userAnswer)) {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -123,15 +124,19 @@ int main() {
             if (userAnswer == totalNum) {  // logic to check if the user inputs the right answer
                 totalCorrect++;
                 cout << "Excellent Job Einstein!" << endl;
+                row.push_back (i);
                 break;
             } else {
                 cout << "Incorrect sorry :(" << endl;
                 if (i < 2) { // won't show try again after the last attempt
                     cout << 2 - i << " attempt/s left." << endl;
                     cout << "Try Again" << endl;
+                    row.push_back(0);
                 }
             }
         }// end of for loop
+
+        questions.push_back(row);
 
         if (userAnswer != totalNum) {
             cout << "The correct answer was " << totalNum << endl;
