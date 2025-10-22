@@ -185,6 +185,13 @@ int main() {
 
     } while (userInput == "yes" || userInput == "y"); // end of do-while
 
+    cout << "====================================" << endl;
+    cout << "          Summary Report            " << endl;
+    cout << "====================================" << endl;
+    cout << " Level      Questions       Attempts" << endl;
+    cout << "-------     ----------     ---------" << endl;
+    cout << endl;
+
 
 
 
