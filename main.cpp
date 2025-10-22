@@ -47,6 +47,8 @@ int main() {
     int mathLevel = 1;
     int currentRange = LEVEL_CHANGE;
 
+    vector<vector<int>> questions;
+
     string userInput = "?";
 
     cout <<  "******************************************************************************************************" << endl; // Simply a header stating what this program is.
@@ -107,6 +109,8 @@ int main() {
         }
 
         cout << "[Level #" << mathLevel << "] " << userName << ", what is " << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
+
+        vector<int> row = {mathLevel, leftNum, rightNum, mathType, totalNum};
 
         for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try agian 3 times
             while (!(cin>>userAnswer)) {
