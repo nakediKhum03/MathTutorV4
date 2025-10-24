@@ -1,6 +1,6 @@
 /*
 * Title:       Math Tutor V3
-*Programer(s): Ethan Hoge & Khumo Nakedi
+*Programer(s): Christopher Thomas & Khumo Nakedi
 *Date:         10/10/2025
 *Github URL:   https://github.com/nakediKhum03/MathTutorV3
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
@@ -176,10 +176,10 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            } else {
-                cout << "Invalid input, please try again..." << endl;
-                cout << endl;
-            }
+                } else {
+                    cout << "Invalid input, please try again..." << endl;
+                    cout << endl;
+                }
         }// end of while true loop
 
 
@@ -191,6 +191,24 @@ int main() {
     cout << " Level      Questions       Attempts" << endl;
     cout << "-------     ----------     ---------" << endl;
     cout << endl;
+
+    /*cout << " " << setw(2) << right << mathLevel << " "
+        << setw(3) << right << leftNum << " "
+        << mathType << " ";*/
+
+    for ( int i = 0; i < MAX_ATTEMPTS; i++) {
+
+        /*if (MAX_ATTEMPTS != 0) {
+            cout << MAX_ATTEMPTS << endl;
+            cout << " " << MAX_ATTEMPTS;
+            totalCorrect++;
+        } else {
+            cout << "Incorrect";
+            totalCorrect--;
+        }*/
+
+
+    }
 
 
 
