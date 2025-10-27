@@ -202,6 +202,20 @@ int main() {
         rightNum = questions.at(i).at(3);
         totalNum = questions.at(i).at(4);
         userAnswer = questions.at(i).at(5);
+        cout << " " << setw(2) << right << mathLevel << " "
+        << setw(3) << right << leftNum << " "
+        << mathType << " ";
+
+        for ( int i = 0; i < MAX_ATTEMPTS; i++) {
+
+            if (MAX_ATTEMPTS != 0) {
+                cout << MAX_ATTEMPTS << endl;
+                cout << " " << MAX_ATTEMPTS;
+                totalCorrect++;
+            } else {
+                cout << "Incorrect";
+                totalCorrect--;
+            }
     }
 
     cout << left
