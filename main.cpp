@@ -192,8 +192,55 @@ int main() {
     cout << "-------     ----------     ---------" << endl;
     cout << endl;
 
+    totalCorrect = 0;
+    totalIncorrect = 0;
+
+    for (int i = 0; i < questions.size(); i++) {
+        mathLevel = questions.at(i).at(0);
+        leftNum = questions.at(i).at(1);
+        mathType = static_cast<char>(questions.at(i).at(2));
+        rightNum = questions.at(i).at(3);
+        totalNum = questions.at(i).at(4);
+        userAnswer = questions.at(i).at(5);
+    }
+
+    cout << left
+     << setw(8)  << "Level"
+     << setw(10) << "Left"
+     << setw(10) << "Right"
+     << setw(10) << "Type"
+     << setw(10) << "Answer"
+     << setw(10) << "User"
+     << setw(10) << "Attempts"
+     << endl;
+
+    cout << setw(8)  << "------"
+         << setw(10) << "----"
+         << setw(10) << "-----"
+         << setw(10) << "----"
+         << setw(10) << "------"
+         << setw(10) << "----"
+         << setw(10) << "--------"
+         << endl;
+
+    for (int i = 0; i < questions.size(); i++) {
+        mathLevel = questions.at(i).at(0);
+        leftNum = questions.at(i).at(1);
+        mathType = static_cast<char>(questions.at(i).at(2));
+        rightNum = questions.at(i).at(3);
+        totalNum = questions.at(i).at(4);
+        userAnswer = questions.at(i).at(5);
 
 
+    }
+
+    string typeName;
+    switch (mathType) {
+        case 1: typeName = "+"; break;
+        case 2: typeName = "-"; break;
+        case 3: typeName = "*"; break;
+        case 4: typeName = "/"; break;
+        default: typeName = "?";
 
 
 
