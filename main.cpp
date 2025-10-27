@@ -196,7 +196,7 @@ int main() {
     totalCorrect = 0;
     totalIncorrect = 0;
 
-    for (int i = 0; i < questions.size(); i++) {
+    for (int i = 0; i < questions.size(); i++) { //start of for loop
         mathLevel = questions.at(i).at(0);
         leftNum = questions.at(i).at(1);
         mathOperator = static_cast<char>(questions.at(i).at(2));
@@ -205,13 +205,21 @@ int main() {
         attempts = questions.at(i).at(5);
 
         cout << " " << setw(2) << right << mathLevel << " "
-        << setw(3) << right << leftNum << " "
-        << mathOperator << " "; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER AND ATTEMPTS
+            << setw(5) << right << leftNum << " "
+            << mathOperator << " " << setw(3) << right
+            << rightNum << setw(3) << " ="
+            << setw(4) << totalNum; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER AND ATTEMPTS
 
+        if (attempts != 0) {
+            cout << " " << attempts << endl;
+            totalCorrect++;
+        } else {
+            cout << "Incorrect" << endl;
+            totalIncorrect++;
 
+        }
 
-
-    }
+    } // End of for loop
 
 cout << endl; // formating white space
     cout << "That's all folks!" << endl; // showing that this code can not check answer
