@@ -186,11 +186,11 @@ int main() {
 
     } while (userInput == "yes" || userInput == "y"); // end of do-while
 
-    cout << "====================================" << endl;
-    cout << "          Summary Report            " << endl;
-    cout << "====================================" << endl;
-    cout << " Level      Questions       Attempts" << endl;
-    cout << "-------     ----------     ---------" << endl;
+    cout << "===================================" << endl;
+    cout << "          Summary Report           " << endl;
+    cout << "===================================" << endl;
+    cout << " Level     Questions     Attempts  " << endl;
+    cout << "----- ------------------ --------- " << endl;
     cout << endl;
 
     totalCorrect = 0;
@@ -206,7 +206,7 @@ int main() {
 
         cout << " " << setw(2) << right << mathLevel << " "
         << setw(3) << right << leftNum << " "
-        << mathOperator << " ";
+        << mathOperator << " "; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER
 
 
 
