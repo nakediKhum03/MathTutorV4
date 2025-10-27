@@ -1,6 +1,6 @@
 /*
 * Title:       Math Tutor V3
-*Programer(s): Ethan Hoge & Khumo Nakedi
+*Programer(s): Christopher Thomas & Khumo Nakedi
 *Date:         10/10/2025
 *Github URL:   https://github.com/nakediKhum03/MathTutorV3
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
@@ -176,10 +176,10 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            } else {
-                cout << "Invalid input, please try again..." << endl;
-                cout << endl;
-            }
+                } else {
+                    cout << "Invalid input, please try again..." << endl;
+                    cout << endl;
+                }
         }// end of while true loop
 
 
@@ -192,55 +192,26 @@ int main() {
     cout << "-------     ----------     ---------" << endl;
     cout << endl;
 
-    totalCorrect = 0;
-    totalIncorrect = 0;
+    cout << " " << setw(2) << right << mathLevel << " "
+        << setw(3) << right << leftNum << " "
+        << mathType << " ";
 
-    for (int i = 0; i < questions.size(); i++) {
-        mathLevel = questions.at(i).at(0);
-        leftNum = questions.at(i).at(1);
-        mathType = static_cast<char>(questions.at(i).at(2));
-        rightNum = questions.at(i).at(3);
-        totalNum = questions.at(i).at(4);
-        userAnswer = questions.at(i).at(5);
-    }
+    for ( int i = 0; i < MAX_ATTEMPTS; i++) {
 
-    cout << left
-     << setw(8)  << "Level"
-     << setw(10) << "Left"
-     << setw(10) << "Right"
-     << setw(10) << "Type"
-     << setw(10) << "Answer"
-     << setw(10) << "User"
-     << setw(10) << "Attempts"
-     << endl;
-
-    cout << setw(8)  << "------"
-         << setw(10) << "----"
-         << setw(10) << "-----"
-         << setw(10) << "----"
-         << setw(10) << "------"
-         << setw(10) << "----"
-         << setw(10) << "--------"
-         << endl;
-
-    for (int i = 0; i < questions.size(); i++) {
-        mathLevel = questions.at(i).at(0);
-        leftNum = questions.at(i).at(1);
-        mathType = static_cast<char>(questions.at(i).at(2));
-        rightNum = questions.at(i).at(3);
-        totalNum = questions.at(i).at(4);
-        userAnswer = questions.at(i).at(5);
+        if (MAX_ATTEMPTS != 0) {
+            cout << MAX_ATTEMPTS << endl;
+            cout << " " << MAX_ATTEMPTS;
+            totalCorrect++;
+        } else {
+            cout << "Incorrect";
+            totalCorrect--;
+        }
 
 
     }
 
-    string typeName;
-    switch (mathType) {
-        case 1: typeName = "+"; break;
-        case 2: typeName = "-"; break;
-        case 3: typeName = "*"; break;
-        case 4: typeName = "/"; break;
-        default: typeName = "?";
+
+
 
 
 
