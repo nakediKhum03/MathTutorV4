@@ -206,7 +206,7 @@ int main() {
 
         cout << " " << setw(2) << right << mathLevel << " "
         << setw(3) << right << leftNum << " "
-        << mathOperator << " "; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER
+        << mathOperator << " "; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER AND ATTEMPTS
 
 
 
