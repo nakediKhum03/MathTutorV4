@@ -192,8 +192,17 @@ int main() {
     cout << "-------     ----------     ---------" << endl;
     cout << endl;
 
+    totalCorrect = 0;
+    totalIncorrect = 0;
 
-
+    for (int i = 0; i < questions.size(); i++) {
+        mathLevel = questions.at(i).at(0);
+        leftNum = questions.at(i).at(1);
+        mathType = static_cast<char>(questions.at(i).at(2));
+        rightNum = questions.at(i).at(3);
+        totalNum = questions.at(i).at(4);
+        userAnswer = questions.at(i).at(5);
+    }
 
 
 
