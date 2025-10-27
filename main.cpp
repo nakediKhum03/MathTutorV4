@@ -47,6 +47,7 @@ int main() {
     int totalIncorrect = 0;
     int mathLevel = 1;
     int currentRange = LEVEL_CHANGE;
+    int attempts = 0;
 
     vector<vector<int>> questions;
 
@@ -198,44 +199,18 @@ int main() {
     for (int i = 0; i < questions.size(); i++) {
         mathLevel = questions.at(i).at(0);
         leftNum = questions.at(i).at(1);
-        mathType = static_cast<char>(questions.at(i).at(2));
+        mathOperator = static_cast<char>(questions.at(i).at(2));
         rightNum = questions.at(i).at(3);
-        totalNum = questions.at(i).at(4);
-        userAnswer = questions.at(i).at(5);
+        userAnswer = questions.at(i).at(4);
+        attempts = questions.at(i).at(5);
+
         cout << " " << setw(2) << right << mathLevel << " "
         << setw(3) << right << leftNum << " "
-        << mathType << " ";
+        << mathOperator << " ";
 
-        for ( int i = 0; i < MAX_ATTEMPTS; i++) {
 
-            if (MAX_ATTEMPTS != 0) {
-                cout << MAX_ATTEMPTS << endl;
-                cout << " " << MAX_ATTEMPTS;
-                totalCorrect++;
-            } else {
-                cout << "Incorrect";
-                totalCorrect--;
-            }
-    }
 
-    cout << left
-     << setw(8)  << "Level"
-     << setw(10) << "Left"
-     << setw(10) << "Right"
-     << setw(10) << "Type"
-     << setw(10) << "Answer"
-     << setw(10) << "User"
-     << setw(10) << "Attempts"
-     << endl;
 
-    cout << setw(8)  << "------"
-         << setw(10) << "----"
-         << setw(10) << "-----"
-         << setw(10) << "----"
-         << setw(10) << "------"
-         << setw(10) << "----"
-         << setw(10) << "--------"
-         << endl;
     }
 
 cout << endl; // formating white space
