@@ -192,20 +192,20 @@ int main() {
     cout << "-------     ----------     ---------" << endl;
     cout << endl;
 
-    /*cout << " " << setw(2) << right << mathLevel << " "
+    cout << " " << setw(2) << right << mathLevel << " "
         << setw(3) << right << leftNum << " "
-        << mathType << " ";*/
+        << mathType << " ";
 
     for ( int i = 0; i < MAX_ATTEMPTS; i++) {
 
-        /*if (MAX_ATTEMPTS != 0) {
+        if (MAX_ATTEMPTS != 0) {
             cout << MAX_ATTEMPTS << endl;
             cout << " " << MAX_ATTEMPTS;
             totalCorrect++;
         } else {
             cout << "Incorrect";
             totalCorrect--;
-        }*/
+        }
 
 
     }
