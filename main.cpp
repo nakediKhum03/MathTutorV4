@@ -1,6 +1,6 @@
 /*
 * Title:       Math Tutor V3
-*Programer(s): Christopher Thomas & Khumo Nakedi
+*Programer(s): Ethan Hoge & Khumo Nakedi
 *Date:         10/10/2025
 *Github URL:   https://github.com/nakediKhum03/MathTutorV3
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
@@ -176,10 +176,10 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-                } else {
-                    cout << "Invalid input, please try again..." << endl;
-                    cout << endl;
-                }
+            } else {
+                cout << "Invalid input, please try again..." << endl;
+                cout << endl;
+            }
         }// end of while true loop
 
 
@@ -192,31 +192,39 @@ int main() {
     cout << "-------     ----------     ---------" << endl;
     cout << endl;
 
-    cout << " " << setw(2) << right << mathLevel << " "
-        << setw(3) << right << leftNum << " "
-        << mathType << " ";
+    totalCorrect = 0;
+    totalIncorrect = 0;
 
-    for ( int i = 0; i < MAX_ATTEMPTS; i++) {
-
-        if (MAX_ATTEMPTS != 0) {
-            cout << MAX_ATTEMPTS << endl;
-            cout << " " << MAX_ATTEMPTS;
-            totalCorrect++;
-        } else {
-            cout << "Incorrect";
-            totalCorrect--;
-        }
-
-
+    for (int i = 0; i < questions.size(); i++) {
+        mathLevel = questions.at(i).at(0);
+        leftNum = questions.at(i).at(1);
+        mathType = static_cast<char>(questions.at(i).at(2));
+        rightNum = questions.at(i).at(3);
+        totalNum = questions.at(i).at(4);
+        userAnswer = questions.at(i).at(5);
     }
 
+    cout << left
+     << setw(8)  << "Level"
+     << setw(10) << "Left"
+     << setw(10) << "Right"
+     << setw(10) << "Type"
+     << setw(10) << "Answer"
+     << setw(10) << "User"
+     << setw(10) << "Attempts"
+     << endl;
 
+    cout << setw(8)  << "------"
+         << setw(10) << "----"
+         << setw(10) << "-----"
+         << setw(10) << "----"
+         << setw(10) << "------"
+         << setw(10) << "----"
+         << setw(10) << "--------"
+         << endl;
+    }
 
-
-
-
-
-    cout << endl; // formating white space
+cout << endl; // formating white space
     cout << "That's all folks!" << endl; // showing that this code can not check answer
     cout << "Come back for version four to see what is in store!" << endl; // Showing that there is a version two coming
     cout << "End of program" << endl; // end of program
