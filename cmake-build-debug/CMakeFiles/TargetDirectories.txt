@@ -1,3 +1,3 @@
-C:/Users/chthom11/OneDrive - Wayne State College/Programming Fundamentals (9 am) Christopher Thomas/MathTutorV4/cmake-build-debug/CMakeFiles/MathTutorV4.dir
-C:/Users/chthom11/OneDrive - Wayne State College/Programming Fundamentals (9 am) Christopher Thomas/MathTutorV4/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/chthom11/OneDrive - Wayne State College/Programming Fundamentals (9 am) Christopher Thomas/MathTutorV4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/chris/OneDrive/MathTutorV4/cmake-build-debug/CMakeFiles/MathTutorV4.dir
+C:/Users/chris/OneDrive/MathTutorV4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/chris/OneDrive/MathTutorV4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
