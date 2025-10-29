@@ -1,8 +1,8 @@
 /*
-* Title:       Math Tutor V3
-*Programer(s): Ethan Hoge & Khumo Nakedi
-*Date:         10/10/2025
-*Github URL:   https://github.com/nakediKhum03/MathTutorV3
+* Title:       Math Tutor V4
+*Programer(s): Khumo Nakedi & Christopher Thomas
+*Date:         10/28/2025
+*Github URL:   https://github.com/nakediKhum03/MathTutorV4
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
 *              randomized integer number with math types for the user to solve. The users name is read in the getline
 *              and given either an addition, subtraction, multiplication or division operation problem. The if-else
@@ -12,6 +12,10 @@
 *              max random number +10 the previous. And if hey get 3 incorrect, they'll level down and the max random
 *              number will be -10 unless the level is already the lowest.
 *
+*              NEW in Version 4:
+*              ~ Stores each question, answer, and attempt count in a 2D vector for summary reporting.
+*              ~ Displays a formatted summary report at the end of the session, showing all questions attempted, the user's answers, and results.
+*              
 */
 
 
