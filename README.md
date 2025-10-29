@@ -88,10 +88,10 @@ Your new range is now from 1 to 40
 Do you want to continue (y=yes || n=no)?
 no
 
-===================================
-Summary Report
-===================================
-Level      Questions     Attempts
+===================================  
+Summary Report  
+===================================  
+Level   | | | | |  |    Questions | | |  |  |  |       Attempts
 ----- ------------------ ---------
 
     1   2 * 5 = 10             1
@@ -113,6 +113,6 @@ Come back for version four to see what is in store!
 End of program
 
 
-Programmers
-@ChThomas24 Christopher Thomas
-@nakediKhum03 Khumo Nakedi
+## Maintainers    
+[@ChThomas24](...) Christopher Thomas   
+[@nakediKhum03](...) Khumo Nakedi
