@@ -1,17 +1,30 @@
 /*
 * Title:       Math Tutor V3
-*Programer(s): Ethan Hoge & Khumo Nakedi
+*Programer(s): Christopher Thomas & Khumo Nakedi
 *Date:         10/10/2025
-*Github URL:   https://github.com/nakediKhum03/MathTutorV3
-*Description:  A simple math tutor that will eventually turn into a big program to help students with their math
-*              randomized integer number with math types for the user to solve. The users name is read in the getline
-*              and given either an addition, subtraction, multiplication or division operation problem. The if-else
-*              statement assists for the user for if they get an answer wrong after three separate attempts ,then
-*              the correct answer will be displayed. Then it'll ask if the user wants to continue on to more questions.
-*              If the user gets three right in a row the it'll level them up making the questions harder by making the
-*              max random number +10 the previous. And if hey get 3 incorrect, they'll level down and the max random
-*              number will be -10 unless the level is already the lowest.
+*Github URL:   https://github.com/nakediKhum03/MathTutorV4.git
+*Description:
+*  A simple math tutor designed to help students practice and improve their basic arithmetic skills.
+*  This program randomly generates integer-based math problems—addition, subtraction, multiplication,
+*  and division—for the user to solve. The user's name is collected using getline, and they are then
+*  presented with one randomized problem at a time.
 *
+*  After each question, the user has up to three attempts to input the correct answer. If the answer
+*  is still incorrect after three attempts, the correct solution is displayed for learning purposes.
+*  The program then asks if the user would like to continue solving more problems.
+*
+*  Performance affects difficulty progression: answering three questions correctly in a row levels
+*  the user up, increasing the maximum random number range by +10 to make problems more challenging.
+*  Conversely, answering three incorrectly in total will level the user down (unless already at the
+*  lowest level), reducing the difficulty range by -10.
+*
+*  Each session is summarized at the end in a formatted report showing all problems attempted, the
+*  user’s responses, the number of attempts, and whether the answers were correct or incorrect. The
+*  report also displays the user’s total correct, total incorrect, and average score percentage.
+*
+*  This evolving version lays the groundwork for a more advanced math tutoring application that will
+*  eventually include detailed tracking, adaptive difficulty, and personalized feedback to assist
+*  students in mastering their math fundamentals.
 */
 
 
@@ -84,37 +97,38 @@ int main() {
         switch (mathType) { // logic behind generating problems based of the math type
             case MT_ADD:
                 mathOperator = '+';
-            totalNum = leftNum + rightNum; // answer for addition
-            break;
+                totalNum = leftNum + rightNum; // answer for addition
+                break;
             case MT_SUB:
                 mathOperator = '-';
-            if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
-                tempNum = leftNum;
-                leftNum = rightNum;
-                rightNum = tempNum;
-            }
-            totalNum = leftNum - rightNum; // answer for subtraction
-            break;
+                if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
+                    tempNum = leftNum;
+                    leftNum = rightNum;
+                    rightNum = tempNum;
+                }
+                totalNum = leftNum - rightNum; // answer for subtraction
+                break;
             case MT_MUL:
                 mathOperator = '*';
-            totalNum = leftNum * rightNum; //answer for multiplication
-            break;
+                totalNum = leftNum * rightNum; //answer for multiplication
+                break;
             case MT_DIV:
                 mathOperator = '/';
-            totalNum = leftNum; // makes sure there is no fractions and correct answer
-            leftNum = leftNum * rightNum; // makes sure there is no fractions
-            break;
+                totalNum = leftNum; // makes sure there is no fractions and correct answer
+                leftNum = leftNum * rightNum; // makes sure there is no fractions
+                break;
             default: // if math type is invalid and it ends the program
                 cout << "invaild math type!" << endl;
-            cout << "contact Ethan or Khumo for help" << endl;
-            return -1;
+                cout << "contact Ethan or Khumo for help" << endl;
+                return -1;
         }
 
         cout << "[Level #" << mathLevel << "] " << userName << ", what is " << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
 
         vector<int> row = {mathLevel, leftNum, rightNum, mathType, totalNum};
 
-        for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try again 3 times
+        for (int i = 1; i <= MAX_ATTEMPTS; i++) { //Lets them try again 3 times
+
             while (!(cin>>userAnswer)) {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -127,23 +141,24 @@ int main() {
                 cout << "Excellent Job Einstein!" << endl;
                 row.push_back (i);
                 break;
-            } else {
-                cout << "Incorrect sorry :(" << endl;
-                if (i < 2) { // won't show try again after the last attempt
-                    cout << 2 - i << " attempt/s left." << endl;
-                    cout << "Try Again" << endl;
-                    row.push_back(0);
-                }
             }
+
+            if (i == MAX_ATTEMPTS) {
+                // won't show try again after the last attempt
+                cout << "Sorry, you are out of attempts" << totalNum << endl;
+                totalIncorrect++;
+            }
+            else {
+                cout << MAX_ATTEMPTS - i << " attempt/s left." << endl;
+                cout << "Try Again" << endl;
+                row.push_back(0);
+                totalIncorrect++;
+            }
+
         }// end of for loop
 
         questions.push_back(row);
 
-        if (userAnswer != totalNum) {
-            cout << "The correct answer was " << totalNum << endl;
-            totalIncorrect++;
-            cout << endl;
-        }
 
         if (totalCorrect ==3 ) { // Level Up logic
             mathLevel++;
@@ -154,7 +169,7 @@ int main() {
             cout << "Your new range is now from 1 to " << currentRange << endl;
             cout << endl;
         }
-        else if (totalIncorrect ==3 && mathLevel >1) { // Level Down logic
+        else if (totalIncorrect >=3 && mathLevel >1) { // Level Down logic
             mathLevel--;
             totalCorrect = 0;
             totalIncorrect = 0;
@@ -164,7 +179,7 @@ int main() {
             cout << endl;
         } // end of if-else
 
-        getline (cin, userInput);
+        getline (cin, userInput); // gets decision from the user
 
         while (true) {
             cout << "Do you want to continue (y=yes || n=no)? " << endl;
@@ -177,10 +192,10 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            } else {
-                cout << "Invalid input, please try again..." << endl;
-                cout << endl;
-            }
+                } else {
+                    cout << "Invalid input, please try again..." << endl;
+                    cout << endl;
+                }
         }// end of while true loop
 
 
@@ -190,42 +205,62 @@ int main() {
     cout << "          Summary Report           " << endl;
     cout << "===================================" << endl;
     cout << " Level     Questions     Attempts  " << endl;
-    cout << "----- ------------------ --------- " << endl;
-    cout << endl;
+    cout << "----- ------------------ --------- " << endl; //displays header
 
     totalCorrect = 0;
     totalIncorrect = 0;
 
-    for (int i = 0; i < questions.size(); i++) { //start of for loop
-        mathLevel = questions.at(i).at(0);
-        leftNum = questions.at(i).at(1);
-        mathOperator = static_cast<char>(questions.at(i).at(2));
-        rightNum = questions.at(i).at(3);
-        userAnswer = questions.at(i).at(4);
-        attempts = questions.at(i).at(5);
+    for (int i = 0; i < static_cast<int>(questions.size()); ++i) {
+        mathLevel    = questions.at(i).at(0);
+        leftNum      = questions.at(i).at(1);
+        rightNum     = questions.at(i).at(2);
 
-        cout << " " << setw(2) << right << mathLevel << " "
-            << setw(5) << right << leftNum << " "
-            << mathOperator << " " << setw(3) << right
-            << rightNum << setw(3) << " ="
-            << setw(4) << totalNum; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER AND ATTEMPTS
+        // map stored op using enum 1 to 4
+        int opCode = questions.at(i).at(3);
+        switch (opCode) {
+            case 1:  mathOperator = '+'; break;  // MT_ADD
+            case 2:  mathOperator = '-'; break;  // MT_SUB
+            case 3:  mathOperator = '*'; break;  // MT_MUL
+            case 4:  mathOperator = '/'; break;  // MT_DIV
+            case '+': case '-': case '*': case '/':
+                mathOperator = static_cast<char>(opCode); // already ASCII
+                break;
+            default:
+                mathOperator = '?';
+                break;
+        }
+
+
+        totalNum     = questions.at(i).at(4);
+        attempts     = questions.at(i).at(5);
+
+        // Align columns cleanly
+        cout << right << setw(5) << mathLevel << "   ";
+        cout << left << setw(18)
+             << (to_string(leftNum) + " " + mathOperator + " " + to_string(rightNum) + " = " + to_string(totalNum))
+             << right;
 
         if (attempts != 0) {
-            cout << " " << attempts << endl;
+            cout << setw(6) << attempts << endl;
             totalCorrect++;
         } else {
             cout << "Incorrect" << endl;
             totalIncorrect++;
-
         }
+    } // end of for loop
 
-    } // End of for loop
+    int totalQs = static_cast<int>(questions.size());
+    int percent = (totalQs > 0) ? (totalCorrect * 100) / totalQs : 0;
 
-cout << endl; // formating white space
-    cout << "That's all folks!" << endl; // showing that this code can not check answer
-    cout << "Come back for version four to see what is in store!" << endl; // Showing that there is a version two coming
-    cout << "End of program" << endl; // end of program
+    cout << endl;
+    cout << "Total Correct:   " << totalCorrect << endl;
+    cout << "Total Incorrect: " << totalIncorrect << endl;
+    cout << "Average:         " << percent << "%" << endl;
 
+    cout << endl;
+    cout << "That's all folks!" << endl;
+    cout << "Come back for version four to see what is in store!" << endl;
+    cout << "End of program" << endl;
     cout << endl;
     return 0;
 }
