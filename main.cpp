@@ -193,35 +193,39 @@ int main() {
     cout << "----- ------------------ --------- " << endl;
     cout << endl;
 
+
     totalCorrect = 0;
     totalIncorrect = 0;
 
-    for (int i = 0; i < questions.size(); i++) { //start of for loop
-        mathLevel = questions.at(i).at(0);
-        leftNum = questions.at(i).at(1);
-        mathOperator = static_cast<char>(questions.at(i).at(2));
-        rightNum = questions.at(i).at(3);
-        userAnswer = questions.at(i).at(4);
-        attempts = questions.at(i).at(5);
+    for (int i = 0; i < static_cast<int>(questions.size()); ++i) {
+        // CHANGED: fill your already-declared variables directly
+        mathLevel    = questions.at(i).at(0);
+        leftNum      = questions.at(i).at(1);
+        rightNum     = questions.at(i).at(2);
+        mathOperator = static_cast<char>(questions.at(i).at(3)); // actual operator
+        totalNum     = questions.at(i).at(4);
+        attempts     = questions.at(i).at(5);                    // attempts (1–3) or 0
 
-        cout << " " << setw(2) << right << mathLevel << " "
-            << setw(5) << right << leftNum << " "
-            << mathOperator << " " << setw(3) << right
-            << rightNum << setw(3) << " ="
-            << setw(4) << totalNum; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER AND ATTEMPTS
+        // CHANGED: show full calculation with real operator and correct answer
+        cout << "  " << setw(2) << right << mathLevel << "   "
+             << setw(5) << right << leftNum << " "
+             << mathOperator << " "
+             << setw(3) << right << rightNum
+             << "  = "
+             << setw(4) << right << totalNum
+             << "    ";
 
         if (attempts != 0) {
-            cout << " " << attempts << endl;
+            cout << attempts << endl;   // attempts used
             totalCorrect++;
         } else {
-            cout << "Incorrect" << endl;
+            cout << "Incorrect" << endl; // shows the correct calculation already (left op right = totalNum)
             totalIncorrect++;
-
         }
+    }
 
-    } // End of for loop
 
-cout << endl; // formating white space
+    cout << endl; // formating white space
     cout << "That's all folks!" << endl; // showing that this code can not check answer
     cout << "Come back for version four to see what is in store!" << endl; // Showing that there is a version two coming
     cout << "End of program" << endl; // end of program
