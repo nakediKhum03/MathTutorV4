@@ -3,15 +3,28 @@
 *Programer(s): Khumo Nakedi & Christopher Thomas
 *Date:         10/29/2025
 *Github URL:   https://github.com/nakediKhum03/MathTutorV4.git
-*Description:  A simple math tutor that will eventually turn into a big program to help students with their math
-*              randomized integer number with math types for the user to solve. The users name is read in the getline
-*              and given either an addition, subtraction, multiplication or division operation problem. The if-else
-*              statement assists for the user for if they get an answer wrong after three separate attempts ,then
-*              the correct answer will be displayed. Then it'll ask if the user wants to continue on to more questions.
-*              If the user gets three right in a row the it'll level them up making the questions harder by making the
-*              max random number +10 the previous. And if hey get 3 incorrect, they'll level down and the max random
-*              number will be -10 unless the level is already the lowest.
+*Description:  A simple math tutor designed to help students practice and improve their basic  math arithmetic skills.
+*              This program randomly generates integer-based math problems—addition, subtraction, multiplication,
+*              and division for the user to solve. The user's name is collected using getline, and they are then
+*              presented with one randomized problem at a time.
 *
+*              After each question, the user has up to three attempts to input the correct answer. If the answer
+*              is still incorrect after three attempts, the correct solution is will be displayed.
+*              The program is then asked if the user would like to continue solving more problems.
+*
+*              Based on how good the user is, they will affect the difficulty progression:
+*              answering three questions correctly in a row levels the user up, increasing the maximum random number
+*              range by +10 to make problems even more challenging.
+*              Inversely, answering three incorrectly in total will level the user down (unless already at the
+*              lowest level), reducing the difficulty range by -10.
+*
+*              Each session is summarized at the end in a formatted summary report showing all problems attempted, the
+*              user’s responses, the number of attempts, and whether the answers were correct or incorrect. The
+*              report also displays the user’s total correct, total incorrect, and average score percentage.
+*
+*              This version serves as the foundation for a more advanced math tutor that will later feature progress
+*              tracking, adaptive difficulty, and personalized feedback to help students strengthen their math skills
+*              and confidence.
 */
 
 
@@ -261,12 +274,13 @@ int main() {
     cout << endl;
     cout << "Total Correct:   " << totalCorrect << endl;
     cout << "Total Incorrect: " << totalIncorrect << endl;
-    cout << "Average:         " << percent << "%" << endl;
+    cout << "Average:         " << percent << "%" << endl; // displays grading
 
     cout << endl;
     cout << "That's all folks!" << endl;
     cout << "Come back for version four to see what is in store!" << endl;
-    cout << "End of program" << endl;
+    cout << "End of program" << endl; // end of program
     cout << endl;
+
     return 0;
 }
