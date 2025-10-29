@@ -88,29 +88,34 @@ Your new range is now from 1 to 40
 Do you want to continue (y=yes || n=no)?
 no
 
-===================================  
-Summary Report  
-===================================  
-Level   | | | | |  |    Questions | | |  |  |  |       Attempts
------ ------------------ ---------
+===================================
 
-    1   2 * 5 = 10             1
-    1   6 * 8 = 48             1
-    1   4 - 1 = 3              1
-    2   7 * 4 = 28             1
-    2   4 * 2 = 8              1
-    2   204 / 12 = 17          1
-    3   18 - 5 = 13            1
-    3   2 * 22 = 44            1
-    3   462 / 21 = 22          1
+Summary Report           
 
-Total Correct:   9
-Total Incorrect: 0
+===================================
+
+Level Questions Attempts
+
+----- ----------------------------    --------
+
+    1   2 * 5 = 10                       1
+    1   6 * 8 = 48                       1
+    1   4 - 1 = 3                        1
+    2   7 * 4 = 28                       1
+    2   4 * 2 = 8                        1
+    2   204 / 12 = 17                    1
+    3   18 - 5 = 13                      1
+    3   2 * 22 = 44                      1
+    3   462 / 21 = 22                    1
+
+Total Correct:   9  
+Total Incorrect: 0  
 Average:         100%
 
-That's all folks!
-Come back for version four to see what is in store!
+That's all folks!  
+Come back for version four to see what is in store!  
 End of program
+
 
 
 ## Maintainers    
