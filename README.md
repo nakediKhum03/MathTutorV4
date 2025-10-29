@@ -1,4 +1,4 @@
-"C:\Users\chthom11\OneDrive - Wayne State College\Programming Fundamentals (9 am) Christopher Thomas\MathTutorV4.2\cmake-build-debug\MathTutorV4.exe"
+
 ******************************************************************************************************
 *                               Welcome to the Simply Silly Math Tutor                               *
 ******************************************************************************************************
