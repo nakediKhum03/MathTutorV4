@@ -84,66 +84,77 @@ int main() {
         switch (mathType) { // logic behind generating problems based of the math type
             case MT_ADD:
                 mathOperator = '+';
-            totalNum = leftNum + rightNum; // answer for addition
-            break;
+                totalNum = leftNum + rightNum; // answer for addition
+                break;
             case MT_SUB:
                 mathOperator = '-';
-            if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
-                tempNum = leftNum;
-                leftNum = rightNum;
-                rightNum = tempNum;
-            }
-            totalNum = leftNum - rightNum; // answer for subtraction
-            break;
+                if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
+                    tempNum = leftNum;
+                    leftNum = rightNum;
+                    rightNum = tempNum;
+                }
+                totalNum = leftNum - rightNum; // answer for subtraction
+                break;
             case MT_MUL:
                 mathOperator = '*';
-            totalNum = leftNum * rightNum; //answer for multiplication
-            break;
+                totalNum = leftNum * rightNum; //answer for multiplication
+                break;
             case MT_DIV:
                 mathOperator = '/';
-            totalNum = leftNum; // makes sure there is no fractions and correct answer
-            leftNum = leftNum * rightNum; // makes sure there is no fractions
-            break;
+                totalNum = leftNum; // makes sure there is no fractions and correct answer
+                leftNum = leftNum * rightNum; // makes sure there is no fractions
+                break;
             default: // if math type is invalid and it ends the program
                 cout << "invaild math type!" << endl;
-            cout << "contact Ethan or Khumo for help" << endl;
-            return -1;
+                cout << "contact Ethan or Khumo for help" << endl;
+                return -1;
         }
 
         cout << "[Level #" << mathLevel << "] " << userName << ", what is " << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
 
-        vector<int> row = {mathLevel, leftNum, rightNum, mathType, totalNum};
+        vector<int> row = {mathLevel, leftNum, rightNum, static_cast<int>(mathOperator), totalNum};
+        int attemptsUsed = 0;  // 0 = user never got it correct within MAX_ATTEMPTS
 
-        for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try again 3 times
-            while (!(cin>>userAnswer)) {
+
+
+        for (int i = 1; i <= MAX_ATTEMPTS; ++i) {
+            // ... your input handling stays the same ...
+
+            while (!(cin >> userAnswer)) {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "\tInvalid input!" << endl;
-                cout << "\tPlease enter a number:" << endl;
-            }// end of while loop
-
-            if (userAnswer == totalNum) {  // logic to check if the user inputs the right answer
-                totalCorrect++;
-                cout << "Excellent Job Einstein!" << endl;
-                row.push_back (i);
-                break;
-            } else {
-                cout << "Incorrect sorry :(" << endl;
-                if (i < 2) { // won't show try again after the last attempt
-                    cout << 2 - i << " attempt/s left." << endl;
-                    cout << "Try Again" << endl;
-                    row.push_back(0);
-                }
+                cout << "\tInvalid input!\n\tPlease enter a number:" << endl;
             }
-        }// end of for loop
 
-        questions.push_back(row);
 
-        if (userAnswer != totalNum) {
-            cout << "The correct answer was " << totalNum << endl;
-            totalIncorrect++;
+            if (userAnswer == totalNum) {
+                cout << "Excellent Job Einstein!" << endl;
+                totalCorrect++;
+                attemptsUsed = i;       // record how many tries it took
+                break;                  // stop asking this question
+            }
+
+            if (i == MAX_ATTEMPTS) {
+                cout << "Sorry, you're out of attempts. Correct answer: " << totalNum << endl;
+                totalIncorrect++;
+
+            } else {
+                cout << (MAX_ATTEMPTS - i) << " attempt/s left." << endl;
+                cout << "Try Again" << endl;
+
+            }
+        }
+
+
+        row.push_back(attemptsUsed);   // attemptsUsed == 0 means Incorrect in summary
+
+        questions.push_back(row);      // now the row has 6 fields as the summary expects
+
+
+        if (attemptsUsed == 0) {
             cout << endl;
         }
+
 
         if (totalCorrect ==3 ) { // Level Up logic
             mathLevel++;
@@ -177,10 +188,10 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            } else {
-                cout << "Invalid input, please try again..." << endl;
-                cout << endl;
-            }
+                } else {
+                    cout << "Invalid input, please try again..." << endl;
+                    cout << endl;
+                }
         }// end of while true loop
 
 
@@ -189,47 +200,65 @@ int main() {
     cout << "===================================" << endl;
     cout << "          Summary Report           " << endl;
     cout << "===================================" << endl;
-    cout << " Level     Questions     Attempts  " << endl;
+    cout << "Level      Questions     Attempts  " << endl;
     cout << "----- ------------------ --------- " << endl;
     cout << endl;
-
 
     totalCorrect = 0;
     totalIncorrect = 0;
 
     for (int i = 0; i < static_cast<int>(questions.size()); ++i) {
-        // CHANGED: fill your already-declared variables directly
         mathLevel    = questions.at(i).at(0);
         leftNum      = questions.at(i).at(1);
         rightNum     = questions.at(i).at(2);
-        mathOperator = static_cast<char>(questions.at(i).at(3)); // actual operator
-        totalNum     = questions.at(i).at(4);
-        attempts     = questions.at(i).at(5);                    // attempts (1–3) or 0
 
-        // CHANGED: show full calculation with real operator and correct answer
-        cout << "  " << setw(2) << right << mathLevel << "   "
-             << setw(5) << right << leftNum << " "
-             << mathOperator << " "
-             << setw(3) << right << rightNum
-             << "  = "
-             << setw(4) << right << totalNum
-             << "    ";
+
+        int opCode = questions.at(i).at(3);
+        switch (opCode) {
+            case 1:  mathOperator = '+'; break;  // MT_ADD
+            case 2:  mathOperator = '-'; break;  // MT_SUB
+            case 3:  mathOperator = '*'; break;  // MT_MUL
+            case 4:  mathOperator = '/'; break;  // MT_DIV
+            case '+': case '-': case '*': case '/':
+                mathOperator = static_cast<char>(opCode); // already ASCII
+                break;
+            default:
+                mathOperator = '?';
+                break;
+        }
+
+
+
+        totalNum     = questions.at(i).at(4);
+        attempts     = questions.at(i).at(5);
+
+        // Align columns cleanly
+        cout << right << setw(5) << mathLevel << "   ";
+        cout << left << setw(18)
+             << (to_string(leftNum) + " " + mathOperator + " " + to_string(rightNum) + " = " + to_string(totalNum))
+             << right;
 
         if (attempts != 0) {
-            cout << attempts << endl;   // attempts used
+            cout << setw(6) << attempts << endl;
             totalCorrect++;
         } else {
-            cout << "Incorrect" << endl; // shows the correct calculation already (left op right = totalNum)
+            cout << "Incorrect" << endl;
             totalIncorrect++;
         }
-    }
+    } // end of for loop
 
+    int totalQs = static_cast<int>(questions.size());
+    int percent = (totalQs > 0) ? (totalCorrect * 100) / totalQs : 0;
 
-    cout << endl; // formating white space
-    cout << "That's all folks!" << endl; // showing that this code can not check answer
-    cout << "Come back for version four to see what is in store!" << endl; // Showing that there is a version two coming
-    cout << "End of program" << endl; // end of program
+    cout << endl;
+    cout << "Total Correct:   " << totalCorrect << endl;
+    cout << "Total Incorrect: " << totalIncorrect << endl;
+    cout << "Average:         " << percent << "%" << endl;
 
+    cout << endl;
+    cout << "That's all folks!" << endl;
+    cout << "Come back for version four to see what is in store!" << endl;
+    cout << "End of program" << endl;
     cout << endl;
     return 0;
 }
