@@ -1,6 +1,6 @@
 /*
 * Title:       Math Tutor V3
-*Programer(s): Christopher Thomas & Khumo Nakedi
+*Programer(s): Ethan Hoge & Khumo Nakedi
 *Date:         10/10/2025
 *Github URL:   https://github.com/nakediKhum03/MathTutorV3
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
@@ -47,6 +47,7 @@ int main() {
     int totalIncorrect = 0;
     int mathLevel = 1;
     int currentRange = LEVEL_CHANGE;
+    int attempts = 0;
 
     vector<vector<int>> questions;
 
@@ -176,47 +177,51 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-                } else {
-                    cout << "Invalid input, please try again..." << endl;
-                    cout << endl;
-                }
+            } else {
+                cout << "Invalid input, please try again..." << endl;
+                cout << endl;
+            }
         }// end of while true loop
 
 
     } while (userInput == "yes" || userInput == "y"); // end of do-while
 
-    cout << "====================================" << endl;
-    cout << "          Summary Report            " << endl;
-    cout << "====================================" << endl;
-    cout << " Level      Questions       Attempts" << endl;
-    cout << "-------     ----------     ---------" << endl;
+    cout << "===================================" << endl;
+    cout << "          Summary Report           " << endl;
+    cout << "===================================" << endl;
+    cout << " Level     Questions     Attempts  " << endl;
+    cout << "----- ------------------ --------- " << endl;
     cout << endl;
 
-    /*cout << " " << setw(2) << right << mathLevel << " "
-        << setw(3) << right << leftNum << " "
-        << mathType << " ";*/
+    totalCorrect = 0;
+    totalIncorrect = 0;
 
-    for ( int i = 0; i < MAX_ATTEMPTS; i++) {
+    for (int i = 0; i < questions.size(); i++) { //start of for loop
+        mathLevel = questions.at(i).at(0);
+        leftNum = questions.at(i).at(1);
+        mathOperator = static_cast<char>(questions.at(i).at(2));
+        rightNum = questions.at(i).at(3);
+        userAnswer = questions.at(i).at(4);
+        attempts = questions.at(i).at(5);
 
-        /*if (MAX_ATTEMPTS != 0) {
-            cout << MAX_ATTEMPTS << endl;
-            cout << " " << MAX_ATTEMPTS;
+        cout << " " << setw(2) << right << mathLevel << " "
+            << setw(5) << right << leftNum << " "
+            << mathOperator << " " << setw(3) << right
+            << rightNum << setw(3) << " ="
+            << setw(4) << totalNum; // STILL NEED TO DISPLAY EQUAL SIGNS, CORRECT ANSWER AND ATTEMPTS
+
+        if (attempts != 0) {
+            cout << " " << attempts << endl;
             totalCorrect++;
         } else {
-            cout << "Incorrect";
-            totalCorrect--;
-        }*/
+            cout << "Incorrect" << endl;
+            totalIncorrect++;
 
+        }
 
-    }
+    } // End of for loop
 
-
-
-
-
-
-
-    cout << endl; // formating white space
+cout << endl; // formating white space
     cout << "That's all folks!" << endl; // showing that this code can not check answer
     cout << "Come back for version four to see what is in store!" << endl; // Showing that there is a version two coming
     cout << "End of program" << endl; // end of program
