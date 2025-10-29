@@ -1,6 +1,6 @@
 /*
 * Title:       Math Tutor V3
-*Programer(s): Ethan Hoge & Khumo Nakedi
+*Programer(s): Khumo Nakedi & Christopher Thomas
 *Date:         10/29/2025
 *Github URL:   https://github.com/nakediKhum03/MathTutorV4
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
