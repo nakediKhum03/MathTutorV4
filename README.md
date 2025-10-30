@@ -1,4 +1,4 @@
-C:\Users\chris\OneDrive\MathTutorV4\cmake-build-debug\MathTutorV4.exe
+
 ******************************************************************************************************
 *                               Welcome to the Simply Silly Math Tutor                               *
 ******************************************************************************************************
@@ -13,94 +13,111 @@ Fun math facts:
 
 What is your name?
 Chris
-Welcome,  Chris, to the Simply Silly Math Tutor!
 
-[Level #1]  Chris, what is 40 / 5 = ?
-8
+Welcome, Chris, to the Simply Silly Math Tutor!
+
+[Level #1] Chris, what is 2 * 5 = ?
+10
+
 Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
 yes
-[Level #1]  Chris, what is 6 - 3 = ?
+
+[Level #1] Chris, what is 6 * 8 = ?
+48
+
+Excellent Job Einstein!
+Do you want to continue (y=yes || n=no)?
+yes
+
+[Level #1] Chris, what is 4 - 1 = ?
 3
-Excellent Job Einstein!
-Do you want to continue (y=yes || n=no)?
-yes
-[Level #1]  Chris, what is 7 * 3 = ?
-21
+
 Excellent Job Einstein!
 You are currently on level 2
 Your new range is now from 1 to 20
 
 Do you want to continue (y=yes || n=no)?
 yes
-[Level #2]  Chris, what is 132 / 12 = ?
-12
-Incorrect sorry :(
-2 attempt/s left.
-Try Again
-13
-Incorrect sorry :(
-1 attempt/s left.
-Try Again
-13
-Incorrect sorry :(
-The correct answer was 11
 
-Do you want to continue (y=yes || n=no)?
-yes
-[Level #2]  Chris, what is 7 * 14 = ?
-98
+[Level #2] Chris, what is 7 * 4 = ?
+28
+
 Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
 yes
-[Level #2]  Chris, what is 5 - 2 = ?
-3
+
+[Level #2] Chris, what is 4 * 2 = ?
+8
+
 Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
 yes
-[Level #2]  Chris, what is 19 * 3 = ?
-57
+
+[Level #2] Chris, what is 204 / 12 = ?
+17
+
 Excellent Job Einstein!
 You are currently on level 3
 Your new range is now from 1 to 30
 
 Do you want to continue (y=yes || n=no)?
 yes
-[Level #3]  Chris, what is 20 - 10 = ?
-19
-Incorrect sorry :(
-2 attempt/s left.
-Try Again
-10
+
+[Level #3] Chris, what is 18 - 5 = ?
+13
+
 Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
 yes
-[Level #3]  Chris, what is 4 * 10 = ?
-40
+
+[Level #3] Chris, what is 2 * 22 = ?
+44
+
 Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
+yes
+
+[Level #3] Chris, what is 462 / 21 = ?
+22
+
+Excellent Job Einstein!
+You are currently on level 4
+Your new range is now from 1 to 40
+
+Do you want to continue (y=yes || n=no)?
 no
-===================================
-Summary Report
-===================================
-Level     Questions     Attempts
------ ------------------ ---------
 
-1    40 ♣   4  =  40Incorrect
-1     6 ♥   2  =  40Incorrect
-1     7 ♥   3  =  40Incorrect
-2   132 ♀   4  =  40Incorrect
-2     7 ♫   3  =  40Incorrect
-2     5 ☻   2  =  40Incorrect
-2    19 ♥   3  =  40Incorrect
-3    20
-2  =  40Incorrect
-3     4
-3  =  40Incorrect
+===================================
 
-That's all folks!
-Come back for version four to see what is in store!
+Summary Report           
+
+===================================
+
+Level Questions Attempts
+
+----- ----------------------------    --------
+
+    1   2 * 5 = 10                       1
+    1   6 * 8 = 48                       1
+    1   4 - 1 = 3                        1
+    2   7 * 4 = 28                       1
+    2   4 * 2 = 8                        1
+    2   204 / 12 = 17                    1
+    3   18 - 5 = 13                      1
+    3   2 * 22 = 44                      1
+    3   462 / 21 = 22                    1
+
+Total Correct:   9  
+Total Incorrect: 0  
+Average:         100%
+
+That's all folks!  
+Come back for version four to see what is in store!  
 End of program
 
 
-Process finished with exit code 0
+
+## Maintainers    
+[@ChThomas24](...) Christopher Thomas   
+[@nakediKhum03](...) Khumo Nakedi
